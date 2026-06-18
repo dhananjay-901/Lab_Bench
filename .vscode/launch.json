@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/workspaces/Lab_Bench/DSA/Cpp",
-      "program": "/workspaces/Lab_Bench/DSA/Cpp/build/Debug/outDebug",
+      "cwd": "/workspaces/Lab_Bench/DSA/Geeksfgeeks",
+      "program": "/workspaces/Lab_Bench/DSA/Geeksfgeeks/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
