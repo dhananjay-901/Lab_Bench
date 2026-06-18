@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution{
     public:
-    bool binarySearch(vector<int>& arr, int k){
+    int binarySearch(vector<int>& arr, int k){
         int low = 0;
-        int high = arr.size()-1;
-        int mid = low + (high-low)/2;
+        int high = (int)arr.size()-1;
         while(low<=high){
+            int mid = low + (high-low)/2;
             if (arr[mid]==k){
-                return k;
+                return mid;
             }
             if(arr[mid]<k){
                 low = mid+1;
@@ -26,6 +27,7 @@ class Solution{
 int main(){
     vector<int> arr = {5,2,1,8,9,4,6};
     int k = 4;
+    sort(arr.begin(), arr.end());
     Solution s;
     cout << s.binarySearch(arr, k) << "\n";
     return 0;
