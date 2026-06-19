@@ -1,0 +1,2 @@
+//expected approach using binary search
+//the minimum distance between cows follows a monotonic property which makes binary search possible. 1. if we can place all cows with a minimum distance d, then placing them with any smaller distance is also possible because allowing smaller gaps gives us more flexibility and space to place cows closer together. 2. on other hand, if we can't place all clows in distance c, then any larger distance also won't work since the increasing the gap makes placement even harder.
