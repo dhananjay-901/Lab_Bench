@@ -13,28 +13,29 @@ using namespace std;
 
 class Solution{
     public:
-    void merge(vector<int>& arr, int left, int mid, int right){
-        int n1 = mid - left + 1;
-        int n2 = right - mid;
+    void merge(vector<int>& arr, size_t left, size_t mid, size_t right){
+        size_t n1 = mid - left + 1;
+        size_t n2 = right - mid;
 
         vector<int> L(n1), R(n2);
 
-        for(int i=0;i<n1;i++){
-            L[i] = arr[left+i];
+        for(size_t i = 0; i < n1; i++){
+            L[i] = arr[left + i];
         }
-        for(int j=0;j<n2;j++){
+        for(size_t j = 0; j < n2; j++){
             R[j] = arr[mid + 1 + j];
         }
 
-        int i = 0, j = 0;
-        int k = left;
+        size_t i = 0, j = 0;
+        size_t k = left;
 
-        while(i<n1 && j<n1){
+        while(i<n1 && j<n2){
             if(L[i]<=R[j]){
                 arr[k] = L[i];
                 i++;
             }else{
                 arr[k] = R[j];
+                j++;
             }
             k++;
         }
@@ -52,15 +53,15 @@ class Solution{
         }
     }
 
-    void mergesort(vector<int>& arr, int left, int right){
-        if(left>=right){
+    void mergesort(vector<int>& arr, size_t left, size_t right){
+        if(left >= right){
             return;
         }
 
-        int mid = left + (right - left)/2;
+        size_t mid = left + (right - left) / 2;
         mergesort(arr, left, mid);
         mergesort(arr, mid + 1, right);
-        merge(arr,left,mid,right);
+        merge(arr, left, mid, right);
     }
 };
 
@@ -69,7 +70,7 @@ int main(void){
     int n = arr.size();
     Solution s;
     s.mergesort(arr, 0, n-1);
-    for(int i = 0; i<arr.size();i++){
+    for(size_t i = 0; i < arr.size(); i++){
         cout << arr[i]<<"\n";
     }
     return 0;
