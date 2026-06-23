@@ -246,6 +246,6 @@ int main(void){
         fprintf(in,"%d ", rand());
     }
     fclose(in);
-    externalSort(input_file, output_file, num_ways, run_size);
+    externalsort(input_file, output_file, num_ways, run_size);
     return 0;
 }
