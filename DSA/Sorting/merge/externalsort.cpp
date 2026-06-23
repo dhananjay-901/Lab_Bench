@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include <bits/stdc++.h>
 using namespace std;
 //when dataset is too large to fit the memory
@@ -42,8 +40,8 @@ class minheap{
     
     exampels of external sorting arrays are 
     merge sort, tape sort, polyphase sort, external radix, external merge.*/
-    //constructor creates a main
-    //heap of given size
+    //constructor creates a heap
+    //of given size
     minheap(minheapnode a[], int size);
 
     //to heapify a subtree with 
@@ -71,11 +69,9 @@ class minheap{
 
 minheap::minheap(minheapnode a[], int size){
     heap_size = size;
-    harr = s;
-    int i = (heap_size-1)/2;
-    while(i>=0){
+    harr = a;
+    for(int i = (heap_size-1)/2; i>=0; --i){
         minheapify(i);
-        i--;
     }
 }
 
@@ -104,27 +100,23 @@ void swap(minheapnode* x, minheapnode* y){
 
 void merge(int arr[], int l, int m, int r){
     int i, j, k;
-    int n1 = m-l+1;
-    int n2 = r-m;
-    
-    int L[n1], R[n2];
+    int n1 = m - l + 1;
+    int n2 = r - m;
 
-    for(i=0;i<n1;i++){
-        L[i] = arr[l+i];
-    }
-    for(j=0;j<n2;j++){
-        R[j] = arr[m+1+j];
-    }
+    vector<int> L(n1), R(n2);
 
-    i=0;
-    j=0;
-    k=l;
-    while(i<n1){
-        arr[k++] = L[i++];
+    for(i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for(j = 0; j < n2; j++)
+        R[j] = arr[m + 1 + j];
+
+    i = 0; j = 0; k = l;
+    while(i < n1 && j < n2){
+        if(L[i] <= R[j]) arr[k++] = L[i++];
+        else arr[k++] = R[j++];
     }
-    while(j<n2){
-        arr[k++] = R[j++];
-    }
+    while(i < n1) arr[k++] = L[i++];
+    while(j < n2) arr[k++] = R[j++];
 }
 
 /*j is for left index and r is right index of the sub array of arr to be sorted*/
@@ -138,7 +130,7 @@ void mergesort(int arr[], int l, int r){
     }
 }
 
-FILE* openFile(char* fileName, char* mode){
+FILE* openFile(const char* fileName, const char* mode){
     FILE* fp = fopen(fileName, mode);
     if(fp==NULL){
         perror("error while opening the file.\n");
@@ -147,35 +139,37 @@ FILE* openFile(char* fileName, char* mode){
     return fp;
 }
 
-void mergeFiles(char* output_file, int n, int k){
-    FILE* in[k];
-    for(int i=0;i<k;i++){
-        char fileName[2];
-
-        snprintf(fileName, sizeof(fileName), %d, i);
-
+void mergeFiles(const char* output_file, int run_size, int num_ways){
+    vector<FILE*> in(num_ways, nullptr);
+    char fileName[64];
+    for(int i = 0; i < num_ways; ++i){
+        snprintf(fileName, sizeof(fileName), "run%d.txt", i);
         in[i] = openFile(fileName, "r");
     }
 
     FILE* out = openFile(output_file, "w");
 
-    minheapnode* harr = new minheapnode[k];
+    minheapnode* harr = new minheapnode[num_ways];
     int i;
-    for(i=0l i<k;i++){
-        if(fscanf(in[i], "%d", &harr[i].element)!=1){
-            break;
+    int activeFiles = 0;
+    for(i = 0; i < num_ways; ++i){
+        if(fscanf(in[i], "%d", &harr[i].element) != 1){
+            harr[i].element = INT_MAX;
+        } else {
+            harr[i].i = i;
+            ++activeFiles;
         }
-        harr[i].i = i;
     }
-    minheap hp(harr, i);
+
+    minheap hp(harr, num_ways);
 
     int count = 0;
-
-    while (count != i){
+    while(true){
         minheapnode root = hp.getmin();
-        fprintf(out, "%d", root.element);
+        if(root.element == INT_MAX) break;
+        fprintf(out, "%d ", root.element);
 
-        if(fscanf(in[root.i],"%d ", &root.element)!=1){
+        if(fscanf(in[root.i], "%d", &root.element) != 1){
             root.element = INT_MAX;
             count++;
         }
@@ -183,20 +177,20 @@ void mergeFiles(char* output_file, int n, int k){
         hp.replacemin(root);
     }
 
-    for(int i=0; i<k;i++){
-        fclose(in[i]);
+    for(int j = 0; j < num_ways; ++j){
+        fclose(in[j]);
     }
     fclose(out);
+    delete [] harr;
 }
 
-void createinitialruns(char* input_file, int run_size, int num_ways){
+void createInitialRuns(const char* input_file, int run_size, int num_ways){
     FILE* in = openFile(input_file, "r");
-    FILE* out[num_ways];
-    char fileName[2];
-    for(int i =0;i<num_ways;i++){
-        snprintf(fileName, sizeof(fileName), "%d", i);
-
-        out[i]= openFile(fileName, "w");
+    vector<FILE*> out(num_ways, nullptr);
+    char fileName[64];
+    for(int i = 0; i < num_ways; ++i){
+        snprintf(fileName, sizeof(fileName), "run%d.txt", i);
+        out[i] = openFile(fileName, "w");
     }
 
     int* arr = (int*)malloc(run_size * sizeof(int));
@@ -205,30 +199,32 @@ void createinitialruns(char* input_file, int run_size, int num_ways){
 
     int i;
     while(more_input){
-        for(i = 0;i<run_size;i++){
-            if(fscanf(in, "%d ", &arr[i])!=1){
+        for(i = 0; i < run_size; ++i){
+            if(fscanf(in, "%d", &arr[i]) != 1){
                 more_input = false;
                 break;
             }
         }
 
-        mergesort(arr, 0 , i-1);
-
-        for(int j = 0; j<i;j++){
-            fprintf(out[next_output_file],"%d ", arr[j]);
+        if(i > 0){
+            sort(arr, arr + i);
+            for(int j = 0; j < i; ++j){
+                fprintf(out[next_output_file], "%d ", arr[j]);
+            }
+            next_output_file = (next_output_file + 1) % num_ways;
         }
-        next_output_file++;
     }
 
-    for(int i = 0; i<num_ways; i++){
-        fclose(out[i]);
+    for(int j = 0; j < num_ways; ++j){
+        fclose(out[j]);
     }
     fclose(in);
+    free(arr);
 }
 
 /*a recursive method to heapify. a subtree with roo. at give index. this method assumes that the subtrees are already heapified*/
 
-void externalsort(char* input_file, char* output_file, int num_ways, int run_size){
+void externalsort(const char* input_file, const char* output_file, int num_ways, int run_size){
     createInitialRuns(input_file, run_size, num_ways);
     mergeFiles(output_file, run_size, num_ways);
 }
