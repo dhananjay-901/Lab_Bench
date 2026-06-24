@@ -2,3 +2,21 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+
+void merge(vector<pair<int, int>>& v, vector<int>& ans, int l, int mid, int h){
+    vector<pair<int, int>> t;
+    int i = l;
+    int j = mid + 1;
+
+    while(i < mid +1 && j <= h ){
+        if(v[i].first > v[j].first){
+            ans[v[i].second] += (h-j+1);
+            t.push_back(v[i]);
+            i++;
+        }else{
+            t.push_back(v[j]);
+            j++;
+        }
+    }
+    
+}
