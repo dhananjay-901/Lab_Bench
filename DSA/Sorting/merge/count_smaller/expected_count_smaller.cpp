@@ -18,5 +18,15 @@ void merge(vector<pair<int, int>>& v, vector<int>& ans, int l, int mid, int h){
             j++;
         }
     }
-    
+    while ( i <= mid){
+        t.push_back(v[i++]);
+    }
+    while(j<=h){
+        t.push_back(v[j++]);
+    }
+    for(int k =0, idx = l; idx<=h;idx++,k++){
+        v[idx] = t[k];
+    }
 }
+
+void mergesort
