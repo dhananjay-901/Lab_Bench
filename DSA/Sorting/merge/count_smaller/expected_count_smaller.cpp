@@ -29,4 +29,6 @@ void merge(vector<pair<int, int>>& v, vector<int>& ans, int l, int mid, int h){
     }
 }
 
-void mergesort
+void mergesort(vector<pair<int, int>>& v, vector<int>& ans, int i, int j){
+    
+}
