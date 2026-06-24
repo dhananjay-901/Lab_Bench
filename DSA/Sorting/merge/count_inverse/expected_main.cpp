@@ -2,6 +2,10 @@
 #include <vector>
 using namespace std;
 
+/*
+we can use merge sort to count the inversions in an array, first we divide the array intwo halves left half and right half. next we recursively count the inversions in both hlaves. while merging the two halves back together, we also count how many elements from the left half array are greater than elements from the right half array, as these represent cross inversions [element from the left half of the array is greater than an element from the right half during the merging process in the merge sort algorithm]. finally we sum the inversions from the left half and right half and the corss inversions to get the total number of inversions in the array. this approach efficiently counts inversions which sorting the array.
+*/
+
 int countandmerge(vector<int>& arr, int l, int m, int r){
     int n1 = m-l+1, n2 = r-m;
 
