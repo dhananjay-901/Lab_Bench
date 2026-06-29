@@ -34,5 +34,13 @@ public class Main6{
 }
 
 /*explanation
+- student implements comparable student and oversides compareto to define the sorting logic
+- compareto returns a negative, zero or positive vlaue to indicate order.
+- collections.sort(students) sorts the list automatically using the natural order defined in compareto().
+- output shows the students sorted by id in ascending order
 
+compareto return values
+returns a negative value if the current object is smaller than the specified object.
+returns 0 if both objects are equal
+returns a positive value if the current object is greater than the specified object.
 */
