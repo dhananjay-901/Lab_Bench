@@ -32,3 +32,7 @@ public class Main6{
         System.out.println(students);
     }
 }
+
+/*explanation
+
+*/
