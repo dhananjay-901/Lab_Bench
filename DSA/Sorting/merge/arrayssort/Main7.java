@@ -31,3 +31,16 @@ public class Main7 {
         }
     }
 }
+
+/*sorting my marks 
+- defines natural order by marks using compareTo
+- collections.sort() automatically arranges elements in ascending order
+- the toString method is used to print objects in a readable format.
+
+advantages of comparable interface
+- defines the natural ordedring of objects automatically
+- eliminates the need for a seperate comparator class for simple sorting
+- makes sorting custome objects easier and more efficient
+- provides consistent ordering in collections like treeset and treemap
+- improves code maintainability by keeping sorting logic inside the class
+*/
