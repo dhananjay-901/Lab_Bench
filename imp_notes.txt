@@ -1,0 +1,5 @@
+Implementation & Order: std::set uses a self-balancing Binary Search Tree (typically Red-Black Tree), maintaining elements in sorted ascending order.  std::unordered_set uses a hash table, storing elements in arbitrary order.
+
+A hash function is an algorithm that takes an input (key or data) of arbitrary size and converts it into a fixed-size numerical value called a hash code, hash value, or digest.  This deterministic process ensures that the same input always produces the same output, while even a minor change in the input results in a significantly different hash. 
+
+In data structures, hash functions are primarily used to map keys to specific indices in a hash table, enabling near-constant time complexity for data retrieval, insertion, and deletion.  To maintain efficiency, a good hash function minimizes collisions (where different inputs produce the same output) and distributes data uniformly across the available storage space. 
