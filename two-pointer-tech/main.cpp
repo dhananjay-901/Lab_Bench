@@ -1,3 +1,5 @@
+//naive method
+
 /*the two pointers technique is a simple yet powerful strategy where you use two indices [pointers] that traverse a data structure - such as array, list or string either toward each other or in the same direction to solve problesm more efficiently
 
 when to use two pointers:
