@@ -25,4 +25,18 @@ intersection of two sorted arrays combines all unique elements that are common t
 1. intersection with duplicates when the sorted input arrays may contain duplicate elements
 2. intersection with distinct elements when the sorted input arrays consist of distinct elements only.
 
-1. 
+1. intersection with duplicates - we are given two sorted arrays a[] and b[] and the task is to return intersection of both the arrays in sorted order. intersection of two array is an array having all common elements in both the arrays. the input arrays may contain duplicates.
+
+The naive approach is to traverse on array a[] and for each element in a[], check if it is in b[]. If Yes, then add it to the result and do not move further in b[] to avoid duplicates. To avoid duplicates in a[], skip if the current element is same as the previous element.
+
+The expected approach is to use merge step of merge sort and maintain two pointers to traverse both arrays. While traversing, if the elements are equal, then add one of them and move both pointers and if they are unequal, skip the smaller one and move the corresponding pointer. While traversing, we avoid duplicates in a[]. We do not need to do it for b[] because once we have a match, we move ahead in a[] and b[] both.
+
+2. intersection with distinct elements - we are given two sorted arrays a[] and b[] having distinct elements and the task is to return intersection of both the arrays in sorted order. intersection of two arrays is an array having all common elements in both the arrays.
+
+The naive approach is to traverse the first array a[] and for each element from a[], check whether it is present in array b[]. If present then add this element to result array.
+
+The expected approach is to use merge step of merge sort and maintain two pointers to traverse both arrays simultaneously. While traversing, if the elements are equal, then add one of them and move both pointers forward and if they are unequal, skip the smaller one and move the corresponding pointer forward.
+
+conclusion - finding the union and intersection of two sorted arrays can be efficiently achieved using the merge step of the merge sort algorithem
+
+for the union of arrays, whether the input arrays contain duplicates or consist of distinct elements, maintaining two pointers allows us to efficiently combine all unique elements from both arrays into a single sorted result. similarly for the intersection of arrays, the same two pointers help to find the common elements while handling the duplicates.
