@@ -1,0 +1,4 @@
+a sorting algorithm is used to rearrane a given array or list of elements in an order. 
+- there exist different sorting algorithms for different types of inputs, for example a binary array, a character array, an array with a large range of values or an array with many duplicates or a small vs large array.
+- the algorithms may also differ according to output requirements. for example stable sorting or maintains original order of equal elements or not stable 
+- sorting is provided in library implementation of most of the programming languages. these sorting functions typically are general purpose functions with flexibility of providing the expected sorting order [increasing or decreasing or by specific key in case of objects].
