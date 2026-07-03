@@ -1,0 +1,28 @@
+union of two sorted arrays 
+
+union of two sorted arrays combines all unique elements from both arrays into a single sorted array.there are several methods to find the union of two sorted array based on whether the input arrays contain duplicate elements or not
+- union with duplicates - when the sorted input arrays may contain duplicate elements
+- union with distinct elements - when the sorted input arrays consist of distint elements only.
+
+1. union with duplicates
+we are given two sorted arrays a[] and b[] and the task is to return union of both the arrays in sorted order. union of two arrays is an array having all distinct elements that are present in either array. the input arrays may contain duplicates
+
+the naive approach is to traverse both the arrays and for each element check if the element is present into the result or not. if not then add this element to the result.
+
+the expected approach is to use merge step in merge sort. maintain two pointers to traverse both arrays siumultaneously. while traversing, if the elements are equal, then add one of them and move both pointers and if they are uneqal, add the smaller element to the union and move the corressponding pointer. to avoid duplicates, skip the current element if it is same as the previous one.
+
+2. union with distint elements
+we are given two sorted array a[] and b[] having distinct elements only and the tsak is to return union of both the arrays in sorted order.
+
+The naive approach is to add all elements from the first array to result array. Then, iterate through the second array and add its elements to the result only if they were not present in a[]. Finally, sort the result array.
+
+The expected approach is to use merge step in merge sort. Maintain two pointers to traverse both arrays simultaneously. While traversing, if the elements are equal, then add one of them and move both pointers and if they are unequal, add the smaller element to the union and move the corresponding pointer.
+
+
+intersection of two sorted arrays
+
+intersection of two sorted arrays combines all unique elements that are common to both arrays into a single sorted array. there are several methods to find the intersection of two sorted arrays based on whether the input arrays contain duplicate elements or not
+1. intersection with duplicates when the sorted input arrays may contain duplicate elements
+2. intersection with distinct elements when the sorted input arrays consist of distinct elements only.
+
+1. 
