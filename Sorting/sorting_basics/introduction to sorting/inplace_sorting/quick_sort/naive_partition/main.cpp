@@ -35,3 +35,8 @@ int main(){
     for(int num : arr) cout << num << "\n";
     return 0;
 }
+
+/*some interesting facts about naive partition
+- it is a stable paritioning algorithm, meaning it preserves the relative order of duplicate elements we can make quick sort stable by using it.
+- it is slower than other partitioning alogrithms because it requires multiple traversals of the array and uses extra space for storing elements.
+-we can easily modify the algorithm to consider the first element(or any other element) as pivot by swapping first and last elements and then using the same code*/
