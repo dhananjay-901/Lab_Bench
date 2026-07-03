@@ -2,3 +2,14 @@ a sorting algorithm is used to rearrane a given array or list of elements in an 
 - there exist different sorting algorithms for different types of inputs, for example a binary array, a character array, an array with a large range of values or an array with many duplicates or a small vs large array.
 - the algorithms may also differ according to output requirements. for example stable sorting or maintains original order of equal elements or not stable 
 - sorting is provided in library implementation of most of the programming languages. these sorting functions typically are general purpose functions with flexibility of providing the expected sorting order [increasing or decreasing or by specific key in case of objects].
+
+introduction to sorting techniques
+sorting refers to rearrangement of a given array or list of elements according to a comparison operator on the elements. the comparison operator is used to decide the new order of elements in the respective data structure.
+
+why sorting algorithms are important?
+sorting algorithms are essential in computer science as they simplify complex problems and improve efficiency. they are widely used in searching, databases, divide and conquer strategies and data structures.
+key applications
+- organizing large datasets for easier handling and printing
+- enabling quick access to the k-th smallest or largest elements
+- making binary search possible for fast lookups in sorted data
+- solving advanced problesms in both software and algorithm design
