@@ -1,3 +1,6 @@
+//refer here for max heap concept
+//https://www.geeksforgeeks.org/dsa/introduction-to-max-heap-data-structure/
+
 /*Heap Sort is a comparison-based sorting algorithm based on the Binary Heap data structure.
 
 It is an optimized version of selection sort.
