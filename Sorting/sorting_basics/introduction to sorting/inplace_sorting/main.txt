@@ -1,0 +1,14 @@
+In-place has more than one definition. One strict definition is. 
+
+An in-place algorithm is an algorithm that does not need an extra space and produces an output in the same memory that contains the data by transforming the input 'in-place'. However, a small constant extra space used for variables is allowed.
+
+A more broad definition is,  
+
+In-place means that the algorithm does not use extra space for manipulating the input but may require a small though non-constant extra space for its operation. Usually, this space is O(log n), though sometimes anything in O(n) (Smaller than linear) is allowed.
+
+which sorting algorithms are in place and which are not?
+in place: bubble sort, selectio sort, insertion sort, heapsort
+not in place: merge sort.
+
+what about quick sort? why is it called in place?
+quick sort uses extra space for recursive function calls. it is called in place according to broad definition as extra space required is not used to manipulate input, but only for recursive calls.
