@@ -5,6 +5,10 @@ Compare the second element with the first if the second is smaller then swap the
 Move to the third element, compare it with the first two, and put it in its correct position
 Repeat until the entire array is sorted.*/
 
+/*for time and space complexity of insertion sort 
+refer this
+https://www.geeksforgeeks.org/dsa/time-and-space-complexity-of-insertion-sort-algorithm/
+*/
 #include <iostream>
 using namespace std;
 
