@@ -1,0 +1,1 @@
+/*the idea is to first check if 1 is present in the array or not. if not the answer is 1. otherwise replace all the numbers outside the range[1,n] to 1. then iterate over the array again and mark the occurences of each number say x by adding n to index x-1. lastly iterate over the array again to find the missing element by searching for the first unmarked index.*/
