@@ -57,52 +57,7 @@ int main(){
     return 0;
 }
 
-/*Recurrence Relation of Merge Sort
-The recurrence relation of merge sort is:
-T
-(
-n
-)
-=
-{
-Θ
-(
-1
-)
-if 
-n
-=
-1
-2
-T
-(
-n
-2
-)
-+
-Θ
-(
-n
-)
-if 
-n
->
-1
-T(n)={ 
-Θ(1)
-2T( 
-2
-n
-​
- )+Θ(n)
-​
-  
-if n=1
-if n>1
-​
- 
-
-T(n) Represents the total time time taken by the algorithm to sort an array of size n.
+/*T(n) Represents the total time time taken by the algorithm to sort an array of size n.
 2T(n/2) represents time taken by the algorithm to recursively sort the two halves of the array. Since each half has n/2 elements, we have two recursive calls with input size as (n/2).
 O(n) represents the time taken to merge the two sorted halves
 Complexity Analysis of Merge Sort
