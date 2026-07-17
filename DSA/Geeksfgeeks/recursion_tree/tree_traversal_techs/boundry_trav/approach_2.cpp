@@ -3,7 +3,6 @@
 #include <vector>
 using namespace std;
 
-// Node Structure
 class Node {
   public:
     int data;
@@ -19,8 +18,6 @@ class Node {
 bool isLeaf(Node *node) {
     return node->left == nullptr && node->right == nullptr;
 }
-
-// Function to collect the left boundary nodes
 void collectLeft(Node *root, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -35,23 +32,18 @@ void collectLeft(Node *root, vector<int> &res) {
             curr = curr->right;
     }
 }
-
-// Function to collect the leaf nodes using Morris Traversal
 void collectLeaves(Node* root, vector<int>& res) {
     Node* current = root;
 
     while (current) {
         if (current->left == nullptr) {
           
-            // If it's a leaf node
             if (current->right == nullptr) 
                 res.push_back(current->data);
             
             current = current->right;
         } 
       	else {
-          
-            // Find the inorder predecessor
             Node* predecessor = current->left;
             while (predecessor->right && predecessor->right != current) {
                 predecessor = predecessor->right;
@@ -62,8 +54,6 @@ void collectLeaves(Node* root, vector<int>& res) {
                 current = current->left;
             } 
           	else {
-          	    
-              	// If it's predecessor is a leaf node
                 if (predecessor->left == nullptr) 
                     res.push_back(predecessor->data);
                 
@@ -74,7 +64,6 @@ void collectLeaves(Node* root, vector<int>& res) {
     }
 }
 
-// Function to collect the right boundary nodes
 void collectRight(Node *root, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -93,41 +82,20 @@ void collectRight(Node *root, vector<int> &res) {
     for (int i = temp.size() - 1; i >= 0; --i)
         res.push_back(temp[i]);
 }
-
-// Function to perform boundary traversal
 vector<int> boundaryTraversal(Node *root) {
     vector<int> res;
-
     if (!root)
         return res;
-
-    // Add root data if it's not a leaf
     if (!isLeaf(root))
         res.push_back(root->data);
-
-    // Collect left boundary
     collectLeft(root->left, res);
-
-    // Collect leaf nodes
     collectLeaves(root, res);
-
-    // Collect right boundary
     collectRight(root->right, res);
 
     return res;
 }
 
 int main() {
-
-    // Hardcoded Binary tree
-    //            1
-    //         /     \
-    //       2         3
-    //     /   \     /   \
-    //    4     5   6     7
-    //         / \
-    //        8   9
-    
     Node *root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
