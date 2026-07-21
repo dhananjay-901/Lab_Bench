@@ -49,3 +49,21 @@ There is no character type in Python and JavaScript and a single character is al
 are strings mutable in different languages ?
 c/c++, python, java, javascript strings are immutable 
 c++ strings objects are mutable 
+
+introduction to matrix or 2dimensional array 
+
+-  matrix or grid is a two dimensioanl array mostly used in mathematicaly and scientific calculations. it is also considered as an array of arays, where array at each index has the same size.
+
+representation of matrix data structure
+as you can see from the below image, the elements are organized in rows and columns.
+
+declaration of matrix data structure
+declaration of a matrix or two dimensional array is very much similar to that of a one dimensional array
+
+initialization matrix data structure
+in initialization we assign some initial value to all the cells of the matrix. 
+
+operations of matrix data structure - we can perform a variety of operations on the matrix data structure.
+
+1. access elements of matrix - like one dimensional arrays, matrices can be access randomly by using their indices to access the individual elements. a cell has two indices, one for its row number and the other for its column number. we can use arr[i][j] to access the element which is at the ith row and jth column of the matrix.
+
