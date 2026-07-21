@@ -1,0 +1,23 @@
+array introduction 
+an array is a collection of items of the same variable type that are stored at contiguous memory locations. it is one of the most popular and simple data structures used in programming
+
+memory allocation - in an array all the elements or their references are stored in contiguous memory locations. this allows for efficient access and manipulation of elements
+
+declaration of array - arrays can be declared in various ways in different languages.
+
+initialization of array - arrays can be initialized in different ways in different languages.
+
+why do we need arrays?
+assume there is a class of five students and if we have to keep records of their marks in examination then, we can do this by declaring five vairables individual and keeping track of records but what if the number of students becomes very large, it would be challenging to manipulate and maintain the data.
+
+types of arrays - two ways
+on the basis of size
+one the basis of dimensions
+
+- on the basis of size 
+1. fixed size
+2. dynamic size 
+
+- on the basis of dimensions 
+1. one dimensional array
+2. multi dimensional array 
