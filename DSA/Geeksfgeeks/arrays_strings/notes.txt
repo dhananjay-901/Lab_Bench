@@ -1,4 +1,4 @@
-array introduction 
+Array introduction 
 an array is a collection of items of the same variable type that are stored at contiguous memory locations. it is one of the most popular and simple data structures used in programming
 
 memory allocation - in an array all the elements or their references are stored in contiguous memory locations. this allows for efficient access and manipulation of elements
@@ -21,3 +21,31 @@ one the basis of dimensions
 - on the basis of dimensions 
 1. one dimensional array
 2. multi dimensional array 
+
+types of arrays on basis of size
+1. fixed sized arrays - we cannot alter or update the size of this array. here only a fixed size of memory will be allocated for storage. in case we don't know the size of array then if we declare a larger size and store a lesser amount of elements it will result in a wastage of memory. and if we declare a lesser size than the number of elements then we won't get enough memory to store all the elements
+
+2.dynamic sized arrays - the size of the array changes as per user requirement during execution of code so the coders do not have to worry about sizes. they can add and removed the elements as per the need. the memory is mostly dynamically and de allocated in these arrays.
+
+types of arrays on the basis of dimensions 
+1. one dimensional array - where elements are stored one after another
+2. multi dimensional array - a multi dimensional array is an array with more than one dimension. we can use multi dimensional array to store complex data in the form of tables.
+    - two dimensional array - 2D multidimensioanl arrays can be considered as an array of arrays or as a matrix consisting of rows and column
+
+
+String introduction
+
+Strings are sequence of characters. the difference between a character array and a string are, a string is terminated with a special character '\0' and strings are typically immutable in most of the programming languages like java an dpython and javascript. 
+
+how strings are represented in memory
+C: Strings are declared as character arrays or pointers and must end with a null character (\0) to indicate termination.
+C++: Supports both C-style character arrays and the std::string class, which provides built-in functions for string manipulation.
+Java: Strings are immutable objects of the String class, meaning their values cannot be modified once assigned.
+Python: Strings are immutable and can be declared using single, double, or triple quotes, making them flexible for multi-line text handling.
+JavaScript: Strings are immutable, primitive data types and can be defined using single, double, or template literals (backticks), allowing for interpolation.
+C#: Uses the string keyword, which represents an immutable sequence of characters, similar to Java.
+There is no character type in Python and JavaScript and a single character is also considered as a string.
+
+are strings mutable in different languages ?
+c/c++, python, java, javascript strings are immutable 
+c++ strings objects are mutable 
