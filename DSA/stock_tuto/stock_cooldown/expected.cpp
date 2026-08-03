@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int maxprofit(vector<int>& arr){
+	int n = arr.size();
+	vector<int> ahead1(2,0), ahead2(2,0), curr(2,0);
+	for(int i=n-1;i>=0;i--){
+		curr[1] = max(-arr[i] + ahead1[0], ahead2[1]);
+		curr[0] = max(arr[i] + ahead2[1], ahead1[0]);
+		ahead2 = ahead1;
+		ahead1= curr;
+	}
+	return ahead1[1];
+}
+
+int main(){
+	vector<int> arr = {0,2,1,2,3};
+	cout << maxprofit(arr) << endl;
+	return 0;
+}

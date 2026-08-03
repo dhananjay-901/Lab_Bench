@@ -1,0 +1,18 @@
+Applications of Matrix Exponentiation:
+Matrix Exponentiation has a variety of applications. Some of them are:
+
+Any linear recurrence relation, such as the Fibonacci Sequence, Tribonacci Sequence or linear homogeneous recurrence relations with constant coefficients, can be solved using matrix exponentiation.
+The RSA encryption algorithm involves exponentiation of large numbers, which can be efficiently handled using matrix exponentiation techniques.
+Dynamic programming problems, especially those involving linear recurrence relations, can be optimized using matrix exponentiation to reduce time complexity.
+Matrix exponentiation is used in number theory problems involving modular arithmetic, such as finding large powers of numbers modulo some value efficiently.
+Advantages of Matrix Exponentiation:
+Advantages of using Matrix Exponentiation are:
+
+Matrix Exponentiation helps in finding Nth term of linear recurrence relations like Fibonacci or Tribonacci Series in log(N) time. This makes it much faster for large values of N.
+It requires O(1) space if we use the iterative approach as it requires constant amount of extra space.
+Large numbers can be handled without integer overflow using modulo operations.
+Disadvantages of Matrix Exponentiation:
+Disadvantages of using Matrix Exponentiation are:
+
+Matrix Exponentiation is more complex than other iterative or recursive methods. Hence, it is harder to debug.
+Initial conditions should be handled carefully to avoid incorrect results.
